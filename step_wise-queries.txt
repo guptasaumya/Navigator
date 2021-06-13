@@ -31,7 +31,7 @@ hive> insert into table partitionedcitydata partition(value) select city, substr
 STEP 3 : /* CREATING A TABLE USING HIVE TO STORE DATA OF 50 CITIES(This will be our seedfile) */
 
 hive> create table userdata(city string, latitude string, longitude string) row format delimited fields terminated by ',' ;
-hive> load data local inpath '/home/cloudera/Desktop/Navigator/UserData.csv' into table userdata ;
+hive> load data local inpath '/home/cloudera/Desktop/Navigator/user_data.csv' into table userdata ;
 
 STEP 4 /* STORING THE FINAL OUTPUT AND CONVERTING IT INTO .tsv FORMAT(I have named it a .csv file) */
 
