@@ -18,7 +18,7 @@ The geocoded input data was extracted from Wikipedia because of its reliability,
 
 ### Usage
 
-All the information about generating the output JSON file is present in the ```step_wise_queries.txt``` file. Also, the compressed version of input data is present as the ```geo-coordinates_en.rar``` file. After extracting data from this, follow the ```step_wise_queries.txt``` file.
+All the information about generating the output JSON file is present in the ```step_wise_queries.txt``` file. Also, the compressed version of input data is present as the ```geo_coordinates_en.rar``` file. After extracting data from this, follow the ```step_wise_queries.txt``` file.
 
 ## License
 
