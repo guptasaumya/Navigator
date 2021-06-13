@@ -3,18 +3,18 @@ STEP 1 : /* UPLOADING .nt FILE ON HDFS AND CONVERTING IT INTO A .txt FILE WITH "
 //Created a Java Map Reduce Program for conversion(To see the codes, Open JavaCodes->NTriplesToCaretSepereated)
 
 hdfs dfs -mkdir /user/cloudera/Navigator
-hdfs dfs -put /home/cloudera/Desktop/Navigator/geo-coordinates_en.nt /user/cloudera/Navigator
-hadoop jar /home/cloudera/Desktop/Navigator/JavaCodes/NTriplesToCaretSeperated/Jar1.jar FileDriver /user/cloudera/Navigator/geo-coordinates_en.nt convertedfile
-hdfs dfs -get /user/cloudera/Navigator/convertedfile/part-r-00000 /home/cloudera/Navigator	-geo-coordinates.ct
+hdfs dfs -put /home/cloudera/Desktop/Navigator/geo_coordinates_en.nt /user/cloudera/Navigator
+hadoop jar /home/cloudera/Desktop/Navigator/JavaCodes/NTriplesToCaretSeperated/Jar1.jar FileDriver /user/cloudera/Navigator/geo_coordinates_en.nt convertedfile
+hdfs dfs -get /user/cloudera/Navigator/convertedfile/part-r-00000 /home/cloudera/Navigator	-geo_coordinates.ct
 
-STEP 2 : /* STORING geo-coordinates.ct IN A TABLE USING HIVE */
+STEP 2 : /* STORING geo_coordinates.ct IN A TABLE USING HIVE */
 
 hive
 
 hive> create database navigator ;
 hive> use navigator ;
 hive> create table rawcitydata(city string, latitude string, longitude string) row format delimited fields terminated by '^' ;
-hive> load data local inpath '/home/cloudera/Desktop/Navigator/geo-coordinates.ct' into table rawcitydata ;
+hive> load data local inpath '/home/cloudera/Desktop/Navigator/geo_coordinates.ct' into table rawcitydata ;
 
 //Created a User Defined Function - "partition()" to find the value of partitioned index 
 //Created a User Defined Function - "distance()" to find the spherical distance between two GPS coordinates
